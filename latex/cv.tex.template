@@ -1,0 +1,167 @@
+\documentclass[a4paper]{deedy-resume} % Use US Letter paper, change to a4paper for A4
+
+{{=<% %>=}}
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\lastupdated % Print the Last Updated text at the top right
+
+
+
+\centering{
+ 	\centering{ % Center the name
+  		\includegraphics[width=0.15\textwidth]{photo.jpg}
+		\fontsize{40pt}{60pt} % Font size
+		\fontspec[Path = fonts/lato/]{Lato-Hai}\selectfont <%me.name%> % First name font
+		\fontspec[Path = fonts/lato/]{Lato-Lig}\selectfont <%me.surname%> % Last name font
+  	}
+  	\\[5pt] % Whitespace between the name and contact information
+  	\centering{ % Center the contact information
+		\color{headings} % Use the headings color
+		\fontspec[Path = fonts/raleway/]{Raleway-Medium}\fontsize{11pt}{14pt}\selectfont \href{mailto:<%me.email%>}{<%me.email%>} | <%me.telephone%> | <%me.address%>
+  	} % Contact information font
+
+	\noindent\makebox[\linewidth]{\color{headings}\rule{\paperwidth}{0.4pt}} % Horizontal rule
+	\vspace{-5pt} % Reduce whitespace after the rule slightly
+}
+
+
+%\namesection2{Luca}{Rinaldi}{ % Your name
+%\urlstyle{same}\url{https://www.linkedin.com/in/lucarin91} \\ % Your website, LinkedIn profile or other web address
+%\href{mailto:lucarin91@gmail.com}{lucarin91@gmail.com} | +39 338 7845158 % Your contact information
+%}
+%----------------------------------------------------------------------------------------
+%	LEFT COLUMN
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}[t]{0.33\textwidth} % The left column takes up 33% of the text width of the page
+
+
+
+%------------------------------------------------
+% Education
+%------------------------------------------------
+
+\section{Education}
+<%#education%>
+  \subsection{<%school%>}
+  \descript{<%degree%>}
+  \location{<%#formatDate%>{{date.begin}}<%/formatDate%> - <%#formatDate%>{{date.end}}<%/formatDate%> | <%location%> \\ <%score%>}
+
+  \sectionspace % Some whitespace after the section
+<%/education%>
+
+%------------------------------------------------
+% Coursework
+%------------------------------------------------
+
+%\section{Language}
+
+%\subsection{<%language.native%>}
+%\location{Native}
+%<%#language.other%>
+%  \subsection{<%name%>}
+%  \location{<%level%>}
+%  \sectionspace % Some whitespace after the section
+%<%/language.other%>
+
+%------------------------------------------------
+% Skills
+%------------------------------------------------
+
+\section{Skills}
+<%#skills%>
+  \subsection{<%name%>}
+  <%#items%>
+    <%name%> \textbullet{}
+  <%/items%>
+\sectionspace % Some whitespace after the section
+<%/skills%>
+
+%------------------------------------------------
+% Links
+%------------------------------------------------
+
+\section{Links}
+
+LinkedIn:// \href{https://www.linkedin.com/in/lucarin91}{\bf lucarin91} \\
+Github:// \href{https://github.com/lucarin91}{\bf lucarin91} \\
+\sectionspace % Some whitespace after the section
+
+%----------------------------------------------------------------------------------------
+
+\end{minipage} % The end of the left column
+%\hfill
+%
+%----------------------------------------------------------------------------------------
+%	RIGHT COLUMN
+%----------------------------------------------------------------------------------------
+%
+\begin{minipage}[t]{0.66\textwidth} % The right column takes up 66% of the text width of the page
+
+%------------------------------------------------
+% Experience
+%------------------------------------------------
+
+\section{Experience}
+
+%------------------------------------------------
+<%#experience%>
+  \runsubsection{<%company%>}
+  \descript{| <%role%>}
+
+  \location{<%#formatDate%>{{date.begin}}<%/formatDate%> - <%#formatDate%>{{date.end}}<%/formatDate%> | <%location%>}
+
+  <%info%>
+
+  \sectionspace % Some whitespace after the section
+<%/experience%>
+
+%------------------------------------------------
+
+%------------------------------------------------
+% Projects
+%------------------------------------------------
+
+<%#projects%>
+  \section{<%name%>}
+    <%#items%>
+      \runsubsection{<%name%>}
+      \descript{<%description%>}
+
+      \location{<%#formatDate%>{{date.begin}}<%/formatDate%> - <%#formatDate%>{{date.end}}<%/formatDate%>}
+
+      <%info%>
+
+      \sectionspace % Some whitespace after the section
+    <%/items%>
+<%/projects%>
+
+%------------------------------------------------
+
+\end{minipage} % The end of the right column
+
+%----------------------------------------------------------------------------------------
+%	SECOND PAGE (EXAMPLE)
+%----------------------------------------------------------------------------------------
+
+%\newpage % Start a new page
+
+%\begin{minipage}[t]{0.33\textwidth} % The left column takes up 33% of the text width of the page
+
+%\section{Example Section}
+
+%\end{minipage} % The end of the left column
+%\hfill
+%\begin{minipage}[t]{0.66\textwidth} % The right column takes up 66% of the text width of the page
+
+%\section{Example Section 2}
+
+%\end{minipage} % The end of the right column
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
