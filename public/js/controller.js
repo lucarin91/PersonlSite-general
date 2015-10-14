@@ -1,6 +1,6 @@
 "use strict";
 
-var mysiteControllers = angular.module('mysiteControllers',[])
+var mysiteControllers = angular.module('mysiteController',[])
 
 
 mysiteControllers.controller('HomeCtrl', ['$scope','me','language','siteText',
