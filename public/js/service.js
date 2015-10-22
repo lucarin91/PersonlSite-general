@@ -2,6 +2,11 @@
 
 /* Services */
 angular.module('mysiteService', ['ngResource'])
+
+//for the language of the site
+.value('language','ita')
+
+
 //for the language of the site
 .factory('languageServ', [function(){
   var language = 'ita';

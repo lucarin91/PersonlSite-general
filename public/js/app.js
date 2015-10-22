@@ -4,8 +4,8 @@ var mysiteApp = angular.module('mysiteApp',[
   'ngRoute',
   'mysiteController',
   'mysiteService',
+  'mySiteFilter'
   //'mysiteDirective',
-  //'mysiteFilter'
 ]);
 /*
 mysiteApp.run( function($rootScope, $location, language) {
@@ -37,8 +37,8 @@ mysiteApp.config (['$routeProvider','$locationProvider',
         templateUrl: 'html/me.html',
         controller: 'HomeCtrl',
         resolve: {
-          me:function(MeService, $route){
-            return MeService.getMe({language:$route.current.params.lang});
+          me:function(APIService, $route){
+            return APIService.me.get();
           },
           siteText:function(JsonLoader,$route){ // the text for the template site:english or italian
               if($route.current.params.lang =='ita'){
@@ -54,14 +54,17 @@ mysiteApp.config (['$routeProvider','$locationProvider',
         templateUrl: 'html/curriculum.html',
         controller: 'CurriculumCtrl',
         resolve: {
-          education:function(EducationService, $route){
-            return EducationService.getEducation({language: $route.current.params.lang});
+          education:function(APIService, $route){
+            return APIService.edu.query();
           },
-          experience:function(ExperienceService, $route){
-            return ExperienceService.getExperience({language: $route.current.params.lang});
+          experience:function(APIService, $route){
+            return APIService.exp.query();
           },
-          skills : function(SkillsService, $route){
-            return SkillsService.getSkills({language :$route.current.params.lang});
+          skills : function(APIService, $route){
+            return APIService.skill.query();
+          },
+          skillsCat : function(APIService, $route){
+            return APIService.skillCat.query();
           },
           siteText:function(JsonLoader,$route){ // the text for the template site:english or italian
               if($route.current.params.lang =='ita'){
@@ -77,8 +80,11 @@ mysiteApp.config (['$routeProvider','$locationProvider',
         templateUrl: 'html/projects.html',
         controller: 'ProjectsCtrl',
         resolve: {
-          projects:function(ProjectsService, $route){
-            return ProjectsService.getProjects({language:$route.current.params.lang})
+          projects:function(APIService, $route){
+            return APIService.pro.query();
+          },
+          projectsCat:function(APIService, $route){
+            return APIService.proCat.query();
           }
         }
       })/*.

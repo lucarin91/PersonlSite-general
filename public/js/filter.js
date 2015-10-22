@@ -22,6 +22,7 @@ angular.module('mySiteFilter', [])
 
 .filter('langFilter', ['languageServ', function(languageServ){
   return function(item){
+    //console.log(item);
     return item[languageServ.get()];
   };
 }]);
