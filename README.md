@@ -1,7 +1,7 @@
 #PersonalSite
 
 ##Back-end API
-Principle Path: `/api/eng|ita`
+Principle Path: `/api/`
 All the request have to be with `Content-Type: application\json`.
 
 All the request are mapped as usual:
@@ -17,13 +17,21 @@ request: `GET`, `POST`, `PUT`, `DELETE`
 this entry return a single json object, like:
 ```
 {
-  _id: {type: ObjectId},
-  bio: {type:String},
+  id: {type:id,required:true},
+  name: {type:String,required:true},
+  surname: {type:String,required:true},
+  email: {type:String,required:true},
+  telephone: {type:String},
+  address: {type:String},
+  bio:  {
+    eng: {type:String},
+    ita: {type:String}
+  },
   img:  {type:String}
 }
 ```
 
-###Curriculum
+###Education
 route: `/curriculum`
 request: `GET`, `POST`
 
@@ -34,10 +42,23 @@ this entry work with a json array like:
 ```
 [
   {
-    _id: {type: ObjectId},
-    date: {type: Date, required:true},
-    name: {type:String, required:true},
-    info: {type:String}
+    school: {
+      eng: {type:String},
+      ita: {type:String}
+    },
+    degree: {
+      eng: {type:String},
+      ita: {type:String}
+    },
+    location: {type:String},
+    date: {
+      begin: {type: Date},
+      end: {type: Date}
+    },
+    score: {
+      eng: {type:Number},
+      ita: {type:Number}
+    }
   }
 ]
 ```
