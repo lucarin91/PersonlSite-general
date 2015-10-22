@@ -12,7 +12,7 @@ All the request are mapped as usual:
 
 ###Me
 route: `/me`
-request: `GET`, `POST`, `PUT`, `DELETE`
+request: `GET`, `PUT`
 
 this entry return a single json object, like:
 ```
@@ -20,9 +20,6 @@ this entry return a single json object, like:
   id: {type:id,required:true},
   name: {type:String,required:true},
   surname: {type:String,required:true},
-  email: {type:String,required:true},
-  telephone: {type:String},
-  address: {type:String},
   bio:  {
     eng: {type:String},
     ita: {type:String}
@@ -32,16 +29,17 @@ this entry return a single json object, like:
 ```
 
 ###Education
-route: `/curriculum`
+route: `/education`
 request: `GET`, `POST`
 
-route: `/curriculum/:id`
+route: `/education/:id`
 request: `PUT`, `DELETE`
 
 this entry work with a json array like:
 ```
 [
   {
+    id: {type: ObjectId},
     school: {
       eng: {type:String},
       ita: {type:String}
@@ -63,30 +61,72 @@ this entry work with a json array like:
 ]
 ```
 
-###Projects
-route: `/projects`
+###ProjectsCat
+route: `/projectscat`
 request: `GET`, `POST`
 
-route: `/projects/:id`
-request: `POST`, `PUT`, `DELETE`
-use to add a new item in a project group, or modify and remove a project group
-
-route: `/projects/item/:id`
+route: `/projectscat/:id`
 request: `PUT`, `DELETE`
-use to modify or remove a item project
+use to add a new item in a project group, or modify and remove a project group
 
 this entry work with a json array like:
 ```
 [
   {
-    _id: {type: ObjectId},
-    name: {type:String, required:true},
-    items: [{
-              _id: {type: ObjectId},
-              name: {type:String, required:true},
-              info: {type:String},
-              link: {type:String}
-            }]
+    id: {type: ObjectId},
+    name: {
+      eng: {type:String},
+      ita: {type:String}
+    }
+  }
+]
+```
+
+###Projects
+route: `/projects`
+request: `GET`, `POST`
+
+route: `/projects/:id`
+request: `PUT`, `DELETE`
+use to add a new item in a project group, or modify and remove a project group
+
+this entry work with a json array like:
+```
+[
+  {
+    id: {type: ObjectId},
+    name: {type:String,required:true},
+    info: {
+      eng: {type:String},
+      ita: {type:String}
+    },
+    link: {type:String},
+    date: {
+      begin: {type: Date},
+      end: {type: Date}
+    },
+    category: { type: Schema.Types.ObjectId, ref: 'Projects' }
+  }
+]
+```
+
+###SkillsCat
+route: `/skillscat`
+request: `GET`, `POST`
+
+route: `/skillscat/:id`
+request: `PUT`, `DELETE`
+use to add a new item in a project group, or modify and remove a project group
+
+this entry work with a json array like:
+```
+[
+  {
+    id: {type: ObjectId},
+    name: {
+      eng: {type:String},
+      ita: {type:String}
+    }
   }
 ]
 ```
@@ -99,21 +139,18 @@ route: `/skills/:id`
 request: `POST`, `PUT`, `DELETE`
 use to add a new item in a skill group, or modify and remove a skill group
 
-route: `/skills/item/:id`
-request: `PUT`, `DELETE`
-use to modify or remove a skill
-
 this entry work with a json array like:
+
 ```
 [
   {
-    _id: {type: ObjectId},
-    name: {type:String, required:true},
-    items: [{
-              _id: {type: ObjectId},
-              name: {type:String, required:true},
-              point: {number:String,required:true}
-            }]
+    id: {type: ObjectId},
+    name: {
+      eng: {type:String},
+      ita: {type:String}
+    },
+    point: {type:Number, required:true},
+    category: { type: Schema.Types.ObjectId, ref: 'Skills' }
   }
 ]
 ```

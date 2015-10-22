@@ -1,3 +1,6 @@
+/* jslint node: true */
+"use strict";
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -18,7 +21,10 @@ groupSkill.virtual('id')
 });
 
 var item = new Schema({
-    name: {type:String, required:true},
+    name: {
+      eng: {type:String},
+      ita: {type:String}
+    },
     point: {type:Number, required:true},
     category: { type: Schema.Types.ObjectId, ref: 'Skills' }
 },

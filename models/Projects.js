@@ -1,11 +1,11 @@
+/* jslint node: true */
+"use strict";
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var item = new Schema({
-  name: {
-    eng: {type:String},
-    ita: {type:String}
-  },
+  name: {type:String,required:true},
   info: {
     eng: {type:String},
     ita: {type:String}
