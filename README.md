@@ -1,6 +1,6 @@
-#PersonalSite
+# PersonalSite
 
-##Back-end API
+## Back-end API
 Principle Path: `/api/`
 All the request have to be with `Content-Type: application\json`.
 
@@ -10,7 +10,7 @@ All the request are mapped as usual:
 - PUT to modify one or all the property
 - DELETE to delete a joson object
 
-###Me
+### Me
 route: `/me`
 request: `GET`, `PUT`
 
@@ -28,7 +28,7 @@ this entry return a single json object, like:
 }
 ```
 
-###Education
+### Education
 route: `/education`
 request: `GET`, `POST`
 
@@ -61,7 +61,7 @@ this entry work with a json array like:
 ]
 ```
 
-###ProjectsCat
+### ProjectsCat
 route: `/projectscat`
 request: `GET`, `POST`
 
@@ -82,7 +82,7 @@ this entry work with a json array like:
 ]
 ```
 
-###Projects
+### Projects
 route: `/projects`
 request: `GET`, `POST`
 
@@ -110,7 +110,7 @@ this entry work with a json array like:
 ]
 ```
 
-###SkillsCat
+### SkillsCat
 route: `/skillscat`
 request: `GET`, `POST`
 
@@ -131,7 +131,7 @@ this entry work with a json array like:
 ]
 ```
 
-###Skills
+### Skills
 route: `/skills`
 request: `GET`, `POST`
 
